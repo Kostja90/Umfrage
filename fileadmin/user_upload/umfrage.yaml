@@ -1,0 +1,1084 @@
+renderingOptions:
+  submitButtonLabel: Finale Abgabe
+type: Form
+identifier: umfrage
+label: Fragebogen für zentralrats Datenbank
+prototypeName: standard
+finishers:
+  -
+    identifier: SaveToDatabase
+    options:
+      table: 'fe_users'
+      mode: update
+      whereClause:
+        uid: 1
+      databaseColumnMappings:
+        pid:
+          value: 1
+      elements:
+        textfield-identifier-1:
+          mapOnDatabaseColumn: 'first_name'
+        textfield-identifier-2:
+          mapOnDatabaseColumn: 'last_name'
+        textfield-identifier-3:
+          mapOnDatabaseColumn: 'username'
+        advancedpassword-1:
+          mapOnDatabaseColumn: 'password'
+          skipIfValueIsEmpty: true
+renderables:
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-1
+  label: Allgemein
+  renderables:
+  - type: Fieldset
+    identifier: fieldset-1
+    label: Fieldset
+    renderables:
+    - properties:
+        options:
+          Berlin: Berlin
+          Konstanz: Konstanz
+        fluidAdditionalAttributes:
+          required: required
+        elementDescription: 'Bla bla '
+      type: SingleSelect
+      identifier: singleselect-1
+      label: Jüdische Gemeinde
+      validators:
+      - identifier: NotEmpty
+    - properties:
+        elementDescription: 'Landesverband ist blabla '
+      type: SingleSelect
+      identifier: singleselect-2
+      label: Gehört zum Landesverband
+- renderingOptions:
+    previousButtonLabel: 'zurück '
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-2
+  label: Kontaktdaten Gemeinde
+  renderables:
+  - type: Fieldset
+    identifier: fieldset-2
+    label: Hausanschrift der Gemeinde oder des Landesverbandes
+    renderables:
+    - defaultValue: ''
+      type: Text
+      identifier: text-1
+      label: Name der Einrichtung
+      properties:
+        fluidAdditionalAttributes:
+          required: required
+      validators:
+      - identifier: NotEmpty
+      - identifier: Text
+    - defaultValue: ''
+      type: Text
+      identifier: text-2
+      label: Postleitzahl
+      validators:
+      - identifier: Integer
+    - defaultValue: ''
+      type: Text
+      identifier: text-3
+      label: Straße
+      validators:
+      - identifier: Text
+    - defaultValue: ''
+      type: Text
+      identifier: text-4
+      label: Hausnummer
+      validators:
+      - identifier: Alphanumeric
+    - defaultValue: ''
+      type: Text
+      identifier: text-5
+      label: Ort
+      validators:
+      - identifier: Text
+    - defaultValue: ''
+      type: Text
+      identifier: text-6
+      label: Telefonnummer
+      validators:
+      - identifier: Integer
+    - defaultValue: ''
+      type: Text
+      identifier: text-7
+      label: Fax
+      validators:
+      - identifier: Integer
+    - defaultValue: ''
+      type: Text
+      identifier: text-8
+      label: Email
+      validators:
+      - identifier: EmailAddress
+    - defaultValue: ''
+      type: Text
+      identifier: text-9
+      label: Facebookseite
+      validators:
+      - identifier: Alphanumeric
+    - defaultValue: ''
+      type: Text
+      identifier: text-10
+      label: Internetseite
+      validators:
+      - identifier: Alphanumeric
+    - defaultValue: ''
+      type: Text
+      identifier: text-11
+      label: Sprechzeiten
+      validators:
+      - identifier: Alphanumeric
+    - type: Checkbox
+      identifier: checkbox-1
+      label: Mitgliedschaft in Verbunden
+  - type: Fieldset
+    identifier: fieldset-3
+    label: Weitere Zweigstellen
+    renderables:
+    - defaultValue: ''
+      type: Text
+      identifier: text-12
+      label: Posfach
+      validators:
+      - identifier: Alphanumeric
+    - defaultValue: ''
+      type: Text
+      identifier: text-13
+      label: Postleitzahl
+      validators:
+      - identifier: Integer
+    - defaultValue: ''
+      type: Text
+      identifier: text-14
+      label: Ort
+      validators:
+      - identifier: Text
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-3
+  label: Wahlen
+  renderables:
+  - type: Fieldset
+    identifier: fieldset-4
+    label: Fieldset
+    renderables:
+    - properties:
+        dateFormat: Y-m-d
+        enableDatePicker: 'yes'
+        displayTimeSelector: 'no'
+      type: DatePicker
+      identifier: datepicker-2
+      label: Letzte Wahl
+    - properties:
+        options:
+          '1': 1 Jahr
+          '2': 2 Jahre
+          '3': 3 Jahre
+          '4': 4 Jahre
+          '5': 5 Jahre
+      type: SingleSelect
+      identifier: singleselect-3
+      label: Legislaturperiode
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-4
+  label: Gremien und Organe
+  renderables:
+  - type: Fieldset
+    identifier: fieldset-5
+    label: Präsident der Gemeinde/des Landesverbands
+    renderables:
+    - properties:
+        options:
+          'NULL': '---'
+          Herr: Herr
+          Frau: Frau
+      type: SingleSelect
+      identifier: singleselect-4
+      label: Anrede
+    - properties:
+        options:
+          'NULL': '---'
+          Doktor: Dr.
+          Profesor: Prof.
+      type: SingleSelect
+      identifier: singleselect-5
+      label: Titel
+    - defaultValue: ''
+      type: Text
+      identifier: text-15
+      label: Name
+      validators:
+      - identifier: Text
+    - defaultValue: ''
+      type: Text
+      identifier: text-16
+      label: Vorname
+      validators:
+      - identifier: Text
+    - defaultValue: ''
+      type: Text
+      identifier: text-17
+      label: Funktion oder Zuständigkeit oder Dezernat
+      validators:
+      - identifier: Alphanumeric
+      - identifier: Text
+    - defaultValue: ''
+      type: Text
+      identifier: text-18
+      label: Telefonnummer
+      validators:
+      - identifier: Integer
+    - defaultValue: ''
+      type: Text
+      identifier: text-19
+      label: Mobilfunknummer
+      validators:
+      - identifier: Integer
+    - defaultValue: ''
+      type: Text
+      identifier: text-20
+      label: Faxnummer
+      validators:
+      - identifier: Integer
+    - defaultValue: ''
+      type: Text
+      identifier: text-21
+      label: Email
+      validators:
+      - identifier: EmailAddress
+  - type: Fieldset
+    identifier: fieldset-6
+    label: Vorstand der Gemeinde/des Landesverbands
+    renderables:
+    - type: Fieldset
+      identifier: fieldset-7
+      label: Vorstand 1
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-6
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-7
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-22
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-23
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-24
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-25
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-26
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-27
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-28
+        label: Email
+        validators:
+        - identifier: EmailAddress
+    - type: Fieldset
+      identifier: fieldset-8
+      label: Vorstand 2
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-8
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-9
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-29
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-30
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-31
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-32
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-33
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-34
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-35
+        label: Email
+        validators:
+        - identifier: EmailAddress
+    - type: Fieldset
+      identifier: fieldset-9
+      label: Vorstand 3
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-10
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-11
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-36
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-37
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-38
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-39
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-40
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-41
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-42
+        label: Email
+        validators:
+        - identifier: EmailAddress
+    - type: Fieldset
+      identifier: fieldset-10
+      label: Vorstand 4
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-12
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-13
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-43
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-44
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-45
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-46
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-47
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-48
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-49
+        label: Email
+        validators:
+        - identifier: EmailAddress
+    - type: Fieldset
+      identifier: fieldset-11
+      label: Vorstand 5
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-14
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-15
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-50
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-51
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-52
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-53
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-54
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-55
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-56
+        label: Email
+        validators:
+        - identifier: EmailAddress
+    - type: Fieldset
+      identifier: fieldset-12
+      label: Vorstand 6
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-16
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-17
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-57
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-58
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-59
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-60
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-61
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-62
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-63
+        label: Email
+        validators:
+        - identifier: EmailAddress
+    - type: Fieldset
+      identifier: fieldset-13
+      label: Vorstand 7
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-18
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-19
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-64
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-65
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-66
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-67
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-68
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-69
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-70
+        label: Email
+        validators:
+        - identifier: EmailAddress
+    - type: Fieldset
+      identifier: fieldset-14
+      label: Vorstand 8
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-20
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-21
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-71
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-72
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-73
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-74
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-75
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-76
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-77
+        label: Email
+        validators:
+        - identifier: EmailAddress
+    - type: Fieldset
+      identifier: fieldset-15
+      label: Vorstand 9
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-22
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-23
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-78
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-79
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-80
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-81
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-82
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-83
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-84
+        label: Email
+        validators:
+        - identifier: EmailAddress
+  - type: Fieldset
+    identifier: fieldset-16
+    label: Geschäftsführer
+    renderables:
+    - type: Fieldset
+      identifier: fieldset-17
+      label: Geschäftsführer 1
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-24
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-25
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-85
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-86
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-87
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-88
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-89
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-90
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-91
+        label: Email
+        validators:
+        - identifier: EmailAddress
+    - type: Fieldset
+      identifier: fieldset-18
+      label: Geschäftsführer 2
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-26
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-27
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-92
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-93
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-94
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-95
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-96
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-97
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-98
+        label: Email
+        validators:
+        - identifier: EmailAddress
+    - type: Fieldset
+      identifier: fieldset-19
+      label: Geschäftsführer 3
+      renderables:
+      - properties:
+          options:
+            'NULL': '---'
+            Herr: Herr
+            Frau: Frau
+        type: SingleSelect
+        identifier: singleselect-28
+        label: Anrede
+      - properties:
+          options:
+            'NULL': '---'
+            Doktor: Dr.
+            Profesor: Prof.
+        type: SingleSelect
+        identifier: singleselect-29
+        label: Titel
+      - defaultValue: ''
+        type: Text
+        identifier: text-99
+        label: Name
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-100
+        label: Vorname
+        validators:
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-101
+        label: Funktion oder Zuständigkeit oder Dezernat
+        validators:
+        - identifier: Alphanumeric
+        - identifier: Text
+      - defaultValue: ''
+        type: Text
+        identifier: text-102
+        label: Telefonnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-103
+        label: Mobilfunknummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-104
+        label: Faxnummer
+        validators:
+        - identifier: Integer
+      - defaultValue: ''
+        type: Text
+        identifier: text-105
+        label: Email
+        validators:
+        - identifier: EmailAddress
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-5
+  label: Mitgliederservice
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-6
+  label: Kultus
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-7
+  label: Soziales
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-5
+  label: Familie
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-8
+  label: Presse
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-9
+  label: Sicherheit
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-10
+  label: Kultur
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-11
+  label: Jugend und Bildung
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: weiter
+  type: Page
+  identifier: page-12
+  label: Sonstiges
+- renderingOptions:
+    previousButtonLabel: zurück
+    nextButtonLabel: Next step
+  type: SummaryPage
+  identifier: summarypage-1
+  label: Summary step
